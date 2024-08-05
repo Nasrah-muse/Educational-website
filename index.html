@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Known</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="container navbar">
+            <div class="brand">Known</div>
+                 <div class="hamburger">
+                    <i class="fa-solid fa-bars" data-visible="true"></i>
+                    <i class="fa-solid fa-close" data-visible="false"></i>
+                </div>
+                <!-- Menu -->
+              <div class="menu" data-visible="false">
+                 <ul class="nav-links">
+                    <li><a href="#Home">Home</a></li>
+                    <li ><a href="#About">About</a></li>
+                    <li><a href="#Teachers">Teachers</a></li>
+                    <li><a href="#Courses">Courses</a></li>
+                    <li><a href="#Review">Review</a></li>
+                    <li><a href="#Contact">Contact</a></li>
+                   
+                </ul>
+                <div class="phone">
+                <a href="#" >
+                    <i class="fa-solid fa-phone"></i>
+                    +65 2244 1100 
+                </a>  
+               </div>
+              </div>         
+     </nav>
+    </header>
+    <!-- Home -->
+     <section id="Home" >
+        <div class="hero">
+            <div class="container">
+              <div class="content">
+                <h1>Start your journey with our practical courses</h1>
+                <h3>Our online courses are built in partnership with technology leaders and are designed to meet industry demands.</h3>
+                <a href="">Take a course</a>
+              </div>
+                 </div>
+        </div>
+      </section>
+      
+      <!-- Javascript -->
+    <script>
+
+        // JavaScript to Change Hero Section Content"
+        const images = [
+        'https://templatemo.com/templates/templatemo_516_known/images/slider-image2.jpg',
+        'https://templatemo.com/templates/templatemo_516_known/images/slider-image3.jpg',
+        'https://templatemo.com/templates/templatemo_516_known/images/slider-image1.jpg'
+    ];
+
+    const headings = [
+        'Start your journey with our practical courses',
+        'Efficient Learning Methods',
+        'Join our community of learners and leaders'
+    ];
+
+    const subheadings = [
+        'Our online courses are built in partnership with technology leaders and are designed to meet industry demands.',
+        'Nam eget sapien vel nibh euismod vulputate in vel nibh. Quisque eu ex eu urna venenatis sollicitudin ut at libero. Visit ',
+        'Our online courses are designed to fit in your industry supporting all-round with latest technologies.'
+    ];
+
+    const links = [
+        { url: '#Courses', text: 'Take a course' },
+        { url: '#contact', text: 'Lets chat' },
+        { url: '#Features', text: 'Discover more' }
+    ];
+
+    let currentIndex = -1; 
+const usedIndices = new Set();
+
+function getRandomIndex() {
+    let randomIndex;
+    do {
+        randomIndex = Math.floor(Math.random() * images.length);
+    } while (usedIndices.has(randomIndex) && usedIndices.size < images.length);
+    if (usedIndices.size === images.length) {
+        usedIndices.clear(); 
+    }
+    usedIndices.add(randomIndex);
+    return randomIndex;
+}
+
+function changeHeroContent() {
+    const newIndex = getRandomIndex();
+    currentIndex = newIndex;
+
+    document.querySelector('.hero').style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.5), rgba(31, 31, 30, 0.5)), url(${images[currentIndex]})`;
+    document.querySelector('.hero .content h1').textContent = headings[currentIndex];
+    document.querySelector('.hero .content h3').textContent = subheadings[currentIndex];
+    document.querySelector('.hero .content a').href = links[currentIndex].url;
+    document.querySelector('.hero .content a').textContent = links[currentIndex].text;
+}
+
+const intervalId = setInterval(changeHeroContent, 3000);
+
+// Responsive Menu
+
+       const hamburger = document.querySelector('.hamburger');
+        const menu = document.querySelector(".menu");
+        const icons = document.querySelectorAll("i");
+
+        hamburger.addEventListener("click", function (event) {
+            const isVisible = menu.getAttribute('data-visible');
+            if(isVisible == "true"){
+                 menu.setAttribute('data-visible', "false");
+                icons[0].setAttribute('data-visible', "true");
+                icons[1].setAttribute('data-visible', "false");
+            }else if(isVisible == "false"){
+                 menu.setAttribute('data-visible', "true");
+                icons[0].setAttribute('data-visible', "false");
+                icons[1].setAttribute('data-visible', "true");
+
+            }
+        });
+    </script>
+</body>
+</html>
