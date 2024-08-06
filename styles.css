@@ -29,7 +29,8 @@ header{
     padding: 0 22px;
 
      }
-.navbar .brand{
+.navbar .brand a{
+    text-decoration: none;
     color: #252525;
     font-size: 1.125rem;
     font-weight: bold;
@@ -67,6 +68,12 @@ header{
     color: #fff;
     background-color: #29ca8e;
     padding: 30px  20px;
+}
+.nav-links a.active{
+  color: #fff;
+    background-color: #29ca8e;
+    padding: 30px  20px;
+
 }
 
  .nav-links i{
@@ -250,6 +257,7 @@ header{
    }
   .entry-form form input{
     width: 60%;
+    height: 32px;
     color: rgb(69, 69, 69);
     background: none;
     border: none;
@@ -352,11 +360,20 @@ header{
          border-top: 1px solid #f1f1f1;
     
     }
+    .member .social-icons i{
+      width: 35px;
+      height: 35px;
+      padding: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+
+
+    }
     .member .social-icons i:hover{
         background-color: #29ca8e;
         color: #fff;
-        padding: 12px;
-        border-radius: 50%;
     }
     /* COURSE SECTION STYLES */
 
@@ -538,9 +555,6 @@ header{
 #Contact{
   width: 100%;
   height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   background-color: #3f51b5;
   padding: 100px 0;
  }
@@ -576,7 +590,7 @@ header{
  }
  .contact-form form input{
   width: 100%;
-  height: 40px;
+  height: 50px;
   border-radius: 10px;
   border: none;
   outline: none;
@@ -665,12 +679,13 @@ header{
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 50%;
+
    }
    .right-info .social-icons i:hover{
   
     color: #fff;
     background-color: #29ca8e;
-     border-radius: 50%;
    }
    .right-info .copyright-text {
     display: flex;
@@ -778,7 +793,7 @@ header{
  @media(max-width:768px){
  
   
-.navbar .brand{
+.navbar .brand {
     font-weight: 800;
     text-align: center;
     color: #252525;
@@ -813,10 +828,10 @@ header{
      flex-direction: column;
          }
     .nav-links a:hover,
-    .nav-links a:focus {
+    .nav-links a:focus ,.nav-links a.active{
         color: #fff;
         background-color: #29ca8e;
-        padding: 5px 768px;
+        padding: 10px 500px;
     }
     .phone a:hover{
         color: #fff;
@@ -929,10 +944,19 @@ width: 100%;
   height: 100%;
  
  }
+ .contact-form h2{
+   font-size: 1.5rem;
+  }
+ .contact-form p{
+  font-size: 1rem;
+  
+ 
+ }
  .contact-form form{
   width: 100%;
  
  }
+ 
  .contact-form form button{
   width: 100%;
  
@@ -953,21 +977,12 @@ width: 100%;
         
     
      }
-     .footer-info .right-info{
+     .footer-info .right-info,  .middle-info,  .left-info{
       width: 100%;
       height: 100%;
       
        }
-       .middle-info{
-        width: 100%;
-        height: 100%;
-         
-        }
-        .left-info{
-          width: 100%;
-          height: 100%;
-          
-         }
+      
  
 
  }

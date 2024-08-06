@@ -10,7 +10,7 @@
 <body>
     <header>
         <nav class="container navbar">
-            <div class="brand">Known</div>
+            <div class="brand"><a href="#Home">Known</a></div>
                  <div class="hamburger">
                     <i class="fa-solid fa-bars" data-visible="true"></i>
                     <i class="fa-solid fa-close" data-visible="false"></i>
@@ -432,6 +432,36 @@
    
       <!-- Javascript -->
     <script>
+
+document.addEventListener("DOMContentLoaded", function() {
+  const links = document.querySelectorAll('.nav-links a');
+  const currentPage = window.location.pathname.split('/').pop(); 
+
+   links.forEach(link => {
+    if (link.getAttribute('href') === currentPage) {
+      link.classList.add('active');
+    }
+
+    link.addEventListener('click', function() {
+       links.forEach(item => item.classList.remove('active'));
+
+       this.classList.add('active');
+      
+       localStorage.setItem('activeLink', this.getAttribute('href'));
+    });
+  });
+
+   const savedLink = localStorage.getItem('activeLink');
+  if (savedLink) {
+    links.forEach(link => {
+      if (link.getAttribute('href') === savedLink) {
+        link.classList.add('active');
+      }
+    });
+  }
+});
+
+
 
         // JavaScript to Change Hero Section Content"
         const images = [
