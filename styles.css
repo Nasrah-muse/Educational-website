@@ -358,6 +358,120 @@ header{
         padding: 12px;
         border-radius: 50%;
     }
+    /* COURSE SECTION STYLES */
+
+.container .all-courses{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-block: 100px;
+
+}
+.container .title{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container .title h2{
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #000;
+}
+.container .title p{
+  color: #777;
+  font-size: 1rem;
+  line-height: 1;
+  font-weight: 400;
+
+}
+.container .courses{
+  display: flex;
+  justify-content: space-between;
+}
+.courses-thumb{
+  width: 21.875rem;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  background-color: #f9f9f9;
+
+}
+
+.course-top{
+  width: 100%;
+   position: relative;
+  
+}
+.course-top img{
+  width: 100%;
+  height: 14.5rem;
+}
+.course-top .course-date{
+  width: 90%;
+  display: flex;
+   gap: 1rem;
+   position: absolute;
+  bottom: 16px;
+  left: 15px;
+  color: #fff;
+  font-weight: 800;
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.2);
+   }
+.course-detail{
+  display: flex;
+  flex-direction: column;
+   justify-content: center;
+   padding: 15px 25px;
+}
+.course-detail  h3 a{
+  text-decoration: none;
+  font-size: 1.3125rem;
+  color: #454545;
+}
+.course-detail  h3 a:hover{
+  color: #29ca8e;
+}
+.course-detail p{
+  font-size: 14px;
+  color: #757575;
+  line-height: 24px;
+}
+.course-info{
+  width: 100%;
+  display: flex;
+   align-items: center;
+    justify-content: space-between;
+    padding: 15px 25px;
+    border-top: 1px solid #f5eded;
+}
+.course-author{
+  display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: #333;
+    font-size: 0.875rem;
+    font-weight: 800;
+}
+.course-author img{
+  width: 3.125rem;
+  height:3.125rem;
+  border-radius: 50%;
+}
+.course-price a{
+  text-decoration: none;
+  color: white;
+  background-color: #29ca8e;
+  padding: 5px 10px;
+  font-size: 0.875rem;
+}
+.course-price.free a {
+  background-color: #3f51b5; 
+  
+}
+
 
 
   /* RESPONSIVE */
@@ -454,15 +568,39 @@ header{
     width: 90%;
    }
    /* teachers */
+   #Teachers{
+    width: 100%;
+    height: 100%;
+    
+ }
 
    .team{
      flex-direction: column;
 }
 .team .member{
     width: 100%;
-    height: 100%;
+    height: auto;
      
 
 }
+  /* Courses Responsive */
+  
+  .container .courses{
+    width: 100%;
+    gap: 2rem;
+    flex-direction: column;
+   }
+ .courses-thumb{
+  width:100%;
+  height: auto;
+}
+.course-top img{
+width: 100%;
+  height: 100%;
+}
+.course-detail{
+  width: 100%;
+}
+ 
 
  }
