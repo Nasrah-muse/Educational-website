@@ -433,33 +433,50 @@
       <!-- Javascript -->
     <script>
 
-document.addEventListener("DOMContentLoaded", function() {
-  const links = document.querySelectorAll('.nav-links a');
-  const currentPage = window.location.pathname.split('/').pop(); 
-
-   links.forEach(link => {
-    if (link.getAttribute('href') === currentPage) {
-      link.classList.add('active');
-    }
-
-    link.addEventListener('click', function() {
-       links.forEach(item => item.classList.remove('active'));
-
-       this.classList.add('active');
+document.addEventListener('DOMContentLoaded', () => {
+      const links = document.querySelectorAll('.nav-links a');
+      const sections = document.querySelectorAll('section');
       
-       localStorage.setItem('activeLink', this.getAttribute('href'));
-    });
-  });
+      const options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5 
+      };
 
-   const savedLink = localStorage.getItem('activeLink');
-  if (savedLink) {
-    links.forEach(link => {
-      if (link.getAttribute('href') === savedLink) {
-        link.classList.add('active');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            links.forEach(link => {
+              link.classList.remove('active');
+              if (link.getAttribute('href').substring(1) === entry.target.id) {
+                link.classList.add('active');
+              }
+            });
+          }
+        });
+      }, options);
+
+      sections.forEach(section => {
+        observer.observe(section);
+      });
+
+       const savedLink = localStorage.getItem('activeLink');
+      if (savedLink) {
+        links.forEach(link => {
+          if (link.getAttribute('href') === savedLink) {
+            link.classList.add('active');
+          }
+        });
       }
+
+       links.forEach(link => {
+        link.addEventListener('click', function() {
+          localStorage.setItem('activeLink', this.getAttribute('href'));
+        });
+      });
     });
-  }
-});
+
+
 
 
 
